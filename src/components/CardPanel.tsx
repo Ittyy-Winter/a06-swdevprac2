@@ -71,7 +71,7 @@ export default function CardPanel() {
             {Array.from(ratingList.entries()).map(([venue, rating]) => (
               <li
                 data-testid={venue + " Rating"}
-                key={venue}
+                key={venue + " Rating"}
                 onClick={() =>
                   dispatchRating({
                     type: "remove",
