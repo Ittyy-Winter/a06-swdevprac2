@@ -4,8 +4,8 @@ import Card from "./Card";
 
 export default function CardPanel() {
   const ratingReducer = (
-    ratingList : Map<string, number>,
-    action : { type: string; venueName: string; rating: number }
+    ratingList: Map<string, number>,
+    action: { type: string; venueName: string; rating: number }
   ) => {
     switch (action.type) {
       case "add": {
@@ -67,21 +67,23 @@ export default function CardPanel() {
       <div className="w-full text-xl font-medium">
         <h3>Venue List with Ratings : {ratingList.size}</h3>
         <ul>
-          {[...ratingList.entries()].map(([venue, rating]) => (
-            <li
-              data-testid={venue + " Rating"} // Ensure test ID matches expectation
-              key={venue}
-              onClick={() =>
-                dispatchRating({
-                  type: "remove",
-                  venueName: venue,
-                  rating: 0,
-                })
-              }
-            >
-              {venue}: {rating}
-            </li>
-          ))}
+          <ul>
+            {Array.from(ratingList.entries()).map(([venue, rating]) => (
+              <li
+                data-testid={venue + " Rating"}
+                key={venue}
+                onClick={() =>
+                  dispatchRating({
+                    type: "remove",
+                    venueName: venue,
+                    rating: 0,
+                  })
+                }
+              >
+                {venue}: {rating}
+              </li>
+            ))}
+          </ul>
         </ul>
       </div>
     </div>
