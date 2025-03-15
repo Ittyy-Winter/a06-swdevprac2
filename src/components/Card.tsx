@@ -38,11 +38,12 @@ export default function ProductCard({
         onClick={(e) => e.stopPropagation()}
       >
         <Rating
-          name={`${venueName}-rating`}
-          aria-label={`${venueName} Rating`}
+          id={venueName + " Rating"}
+          name={venueName + " Rating"}
+          data-testid={venueName + " Rating"}
           value={rating}
           onChange={(e, newRating) => {
-            setRating(newRating||0);
+            setRating(newRating || 0);
             onRating(venueName, newRating);
           }}
         />
