@@ -42,7 +42,7 @@ export default function ProductCard({
           aria-label={`${venueName} Rating`}
           value={rating}
           onChange={(e, newRating) => {
-            setRating(newRating);
+            setRating(newRating||0);
             onRating(venueName, newRating);
           }}
         />
